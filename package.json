@@ -3,7 +3,16 @@
   "displayName": "PKL (Pickle) Preview",
   "description": "Preview Python pickle (.pkl) files in a tree view and a custom readonly editor.",
   "version": "0.0.1",
-  "publisher": "local",
+  "publisher": "lzylovewt",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smallbigchicken/pkl_reader.git"
+  },
+  "homepage": "https://github.com/smallbigchicken/pkl_reader",
+  "bugs": {
+    "url": "https://github.com/smallbigchicken/pkl_reader/issues"
+  },
   "engines": {
     "vscode": "^1.86.0"
   },
@@ -114,4 +123,3 @@
     }
   }
 }
-
