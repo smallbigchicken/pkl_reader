@@ -1,0 +1,117 @@
+{
+  "name": "pkl-pickle-preview",
+  "displayName": "PKL (Pickle) Preview",
+  "description": "Preview Python pickle (.pkl) files in a tree view and a custom readonly editor.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:pklPreview.tree",
+    "onCommand:pklPreview.openWithPreview",
+    "onCommand:pklPreview.refresh",
+    "onCommand:pklPreview.copyJsonPath",
+    "onCustomEditor:pklPreview.viewer"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pklPreview",
+          "title": "PKL",
+          "icon": "resources/pkl.svg"
+        }
+      ]
+    },
+    "views": {
+      "pklPreview": [
+        {
+          "id": "pklPreview.tree",
+          "name": "Pickle Tree"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pklPreview.openWithPreview",
+        "title": "Open with PKL Preview"
+      },
+      {
+        "command": "pklPreview.refresh",
+        "title": "Refresh PKL Preview"
+      },
+      {
+        "command": "pklPreview.copyJsonPath",
+        "title": "Copy PKL JSON Path"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "pklPreview.openWithPreview",
+          "when": "resourceExtname == .pkl",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "pklPreview.copyJsonPath",
+          "when": "view == pklPreview.tree && viewItem == pklNode",
+          "group": "navigation"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "pklPreview.viewer",
+        "displayName": "PKL Preview",
+        "selector": [
+          {
+            "filenamePattern": "*.pkl"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "configuration": {
+      "title": "PKL Preview",
+      "properties": {
+        "pklPreview.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Python interpreter path used to parse pickle files."
+        },
+        "pklPreview.maxDepth": {
+          "type": "number",
+          "default": 8,
+          "minimum": 1,
+          "description": "Maximum depth for expanding objects."
+        },
+        "pklPreview.maxChildrenPerNode": {
+          "type": "number",
+          "default": 200,
+          "minimum": 1,
+          "description": "Maximum number of child nodes per container node."
+        },
+        "pklPreview.maxStringLength": {
+          "type": "number",
+          "default": 2000,
+          "minimum": 32,
+          "description": "Maximum string length shown in labels and previews."
+        },
+        "pklPreview.bytesPreviewLength": {
+          "type": "number",
+          "default": 64,
+          "minimum": 0,
+          "description": "How many bytes to preview for bytes/bytearray nodes."
+        }
+      }
+    }
+  }
+}
+

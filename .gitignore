@@ -1,0 +1,8 @@
+testdata/*.pkl
+testdata/__pycache__/
+__pycache__/
+*.pyc
+*.vsix
+node_modules/
+.DS_Store
+.vscode/
