@@ -17,3 +17,17 @@
 
 本插件使用 Python 的 `pickle.load` 反序列化。pickle 只能用于可信来源的文件。
 
+## Agent Skill (for building VS Code extensions)
+
+This repo includes a reusable Skill prompt for agents/tools to generate VS Code extensions end-to-end:
+- Skill file: [.trae/skills/vscode-extension-builder/SKILL.md](file:///d:/GitHub/pkl_reader/.trae/skills/vscode-extension-builder/SKILL.md)
+
+### Trae (Skills-enabled agents)
+
+- Keep the directory structure as-is and open this repo as the workspace
+- The skill is located at `.trae/skills/vscode-extension-builder/SKILL.md`
+
+### Codex / Cursor / Other agents (no native Skill loader)
+
+- Open `SKILL.md` and copy its full content into your agent’s reusable prompt / custom instructions
+- Use it as a “recipe” whenever you need to create/modify/package/publish a VS Code extension
