@@ -1,0 +1,7 @@
+.gitignore
+.trae/**
+src/**
+testdata/**
+**/*.pkl
+tsconfig.json
+
