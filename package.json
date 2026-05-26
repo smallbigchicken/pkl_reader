@@ -2,7 +2,7 @@
   "name": "pkl-pickle-preview",
   "displayName": "PKL (Pickle) Preview",
   "description": "Preview Python pickle (.pkl) files in a tree view and a custom readonly editor.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "lzylovewt",
   "license": "MIT",
   "repository": {

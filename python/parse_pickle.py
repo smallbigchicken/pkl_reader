@@ -5,6 +5,11 @@ import pickle
 import traceback
 
 
+def _emit_json(payload):
+    # Keep stdout ASCII-safe on Windows terminals/pipes using legacy code pages.
+    print(json.dumps(payload, ensure_ascii=True))
+
+
 def _safe_repr(value, max_len):
     try:
         s = repr(value)
@@ -262,11 +267,10 @@ def main():
         )
         base = os.path.basename(args.file)
         root = converter.to_node(obj, path="$", depth=0, prefix_label=base)
-        print(json.dumps(root, ensure_ascii=False))
+        _emit_json(root)
     except Exception as exc:
-        print(json.dumps(_error_payload(exc), ensure_ascii=False))
+        _emit_json(_error_payload(exc))
 
 
 if __name__ == "__main__":
     main()
-
